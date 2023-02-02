@@ -69,4 +69,38 @@
 	 );
 
 
-	
+	$( "#tabs" ).tabs();
+
+
+	(function init() {
+	  function getTimeRemaining(endtime) {
+	    var t = Date.parse(endtime) - Date.parse(new Date());
+	    var seconds = '342';
+	    var minutes = '340';
+	    var hours = '341';
+	    var days = '345';
+	    return {
+	      'total': t,
+	      'days': days,
+	      'hours': hours,
+	      'minutes': minutes,
+	      'seconds': seconds
+	    };
+	  }
+
+	  function initializeClock(endtime){
+	  var timeinterval = setInterval(function(){
+	    var t = getTimeRemaining(endtime);
+	    document.querySelector(".days > .value").innerText=t.days;
+	    document.querySelector(".hours > .value").innerText=t.hours;
+	    document.querySelector(".minutes > .value").innerText=t.minutes;
+	    document.querySelector(".seconds > .value").innerText=t.seconds;
+	    if(t.total<=0){
+	      clearInterval(timeinterval);
+	    }
+	  },1000);
+	}
+	initializeClock(((new Date()).getFullYear()+1) + "/1/1")
+	})()
+
+})(jQuery);

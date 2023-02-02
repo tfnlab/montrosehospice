@@ -75,10 +75,10 @@
 	(function init() {
 	  function getTimeRemaining(endtime) {
 	    var t = Date.parse(endtime) - Date.parse(new Date());
-	    var seconds = '342';
+	    var seconds = '42';
 	    var minutes = '340';
-	    var hours = '341';
-	    var days = '345';
+	    var hours = '841';
+	    var days = '1600';
 	    return {
 	      'total': t,
 	      'days': days,
